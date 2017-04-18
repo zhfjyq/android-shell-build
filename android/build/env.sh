@@ -1,16 +1,24 @@
 #/bin/bash
 
-echo "Please configure this env.sh ..."
-echo "  SRCTARBALL, NDKDIR, BUILD_MACHINE, ANDROID_VERSION, GCC_VERSION"
-exit 1
+# echo "Please configure this env.sh ..."
+# echo "  SRCTARBALL, NDKDIR, BUILD_MACHINE, ANDROID_VERSION, GCC_VERSION"
+# exit 1
 # Then remove above echo and exit
+# CONFIGURE
+ARCH=arm
+GCC_VERSION="4.9"
+BUILD_MACHINE="darwin-x86_64"
+NDKDIR=$NDK_ROOT
+ANDROID_VERSION="21"
+ANDROID="$NDKDIR/platforms/android-${ANDROID_VERSION}/arch-arm/usr"
+SRCTARBALL="./src"
 
-# Prepare Environment
-export ANDROID_VERSION="{----- android version: e.g. 17 =Android 4.2 -----}"
-export BUILD_MACHINE="{----- build machine: lower case of uname -s -m; e.g. linux-x86_64 -----}"
-export GCC_VERSION="{----- gcc version: e.g. 4.8 -----}"
-export SRCTARBALL="{----- source tarball path -----}"
-export NDKDIR="{----- Google Android NDK path -----}"
+# # Prepare Environment
+# export ANDROID_VERSION="{----- android version: e.g. 17 =Android 4.2 -----}"
+# export BUILD_MACHINE="{----- build machine: lower case of uname -s -m; e.g. linux-x86_64 -----}"
+# export GCC_VERSION="{----- gcc version: e.g. 4.8 -----}"
+# export SRCTARBALL="{----- source tarball path -----}"
+# export NDKDIR="{----- Google Android NDK path -----}"
 
 # example:
 # export ANDROID_VERSION="23" # android 6.0
@@ -34,6 +42,7 @@ function make_install() {
 function fetch_source() {
 # $1: package file name, e.g. vim-7.4.0001.tar.gz
 # $2: source url
-  test -f "$SRCTARBALL/$1" || curl -k -L -o "$SRCTARBALL/$1" "$2"
-  test -f "$SRCTARBALL/$1" || exit 1
+  echo $(pwd)
+  test -f "$1" || curl -k -L -o "$1" "$2"
+  test -f "$1" || exit 1
 }

@@ -16,12 +16,12 @@ source common.sh
 
 cd ..
 rm -rf $ME
-fetch_source $ME.tar.gz http://ftp.gnu.org/gnu/readline/readline-6.3.tar.gz
+fetch_source $SRCTARBALL/$ME.tar.gz http://ftp.gnu.org/gnu/readline/readline-6.3.tar.gz
 tar zxf $SRCTARBALL/$ME.tar.gz
 cd $ME
 mkdir -p dist
 
-sed -i 's|\$as_echo_n "checking for wcwidth broken |bash_cv_wcwidth_broken=yes; $as_echo_n "checking for wcwidth broken |g' configure
+sed -i '' 's|\$as_echo_n "checking for wcwidth broken |bash_cv_wcwidth_broken=yes; $as_echo_n "checking for wcwidth broken |g' configure
 
 cp $ANDROID/lib/*.o $MEDIR/../$ME/shlib/
 
@@ -33,4 +33,3 @@ export LDFLAGS="$LDFLAGS -L$MEDIR/../$DISTBIN/ncurses-5.9/lib"
 
 make
 make_install $ME
-

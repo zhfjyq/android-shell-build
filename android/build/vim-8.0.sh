@@ -23,13 +23,13 @@ export ac_cv_small_wchar_t="no"
 
 cd ..
 rm -rf $ME
-fetch_source $ME.tar.gz https://github.com/vim/vim/archive/v8.0.0095.tar.gz
+fetch_source $SRCTARBALL/$ME.tar.gz https://github.com/vim/vim/archive/v8.0.0095.tar.gz
 tar zxf $SRCTARBALL/$ME.tar.gz
 cd $ME
 mkdir -p dist
 
-sed -i "s/mblen(NULL, 0)/1/" src/mbyte.c
-sed -i "s/mblen(buf, (size_t)1)/1/" src/mbyte.c
+sed -i '' "s/mblen(NULL, 0)/1/" src/mbyte.c
+sed -i '' "s/mblen(buf, (size_t)1)/1/" src/mbyte.c
 touch src/strings.h
 cp $ANDROID/lib/crtbegin_dynamic.o $MEDIR/../$ME/src/crtbegin_dynamic.o
 cp $ANDROID/lib/crtend_android.o $MEDIR/../$ME/src/crtend_android.o
@@ -41,9 +41,9 @@ cp $ANDROID/lib/crtend_android.o $MEDIR/../$ME/src/crtend_android.o
 
 make || echo "error on osdef.h (some function def: char* <==> const char*)"
 
-sed -i "s/.*tgetent.*//" src/auto/osdef.h
-sed -i "s/.*tputs.*//" src/auto/osdef.h
-sed -i "s/.*tgoto.*//" src/auto/osdef.h
+sed -i '' "s/.*tgetent.*//" src/auto/osdef.h
+sed -i '' "s/.*tputs.*//" src/auto/osdef.h
+sed -i '' "s/.*tgoto.*//" src/auto/osdef.h
 
 make
 make_install $ME

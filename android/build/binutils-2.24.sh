@@ -21,7 +21,7 @@ export CFLAGS="-I$MEDIR/../$ME/include $CFLAGS"
 
 cd ..
 rm -rf $ME
-fetch_source $ME.tar.gz http://ftp.gnu.org/gnu/binutils/binutils-2.24.tar.gz
+fetch_source $SRCTARBALL/$ME.tar.gz http://ftp.gnu.org/gnu/binutils/binutils-2.24.tar.gz
 tar zxf $SRCTARBALL/$ME.tar.gz
 cd $ME
 mkdir -p dist
@@ -29,7 +29,7 @@ mkdir -p dist
 ./configure $CONFIGFLAGS --disable-werror --disable-nls --prefix="$MEDIR/../$ME/dist/"
 
 cp include/sha1.h libiberty/
-sed -i "s/getpagesize/_getpagesize/" libiberty/getpagesize.c
+sed -i '' "s/getpagesize/_getpagesize/" libiberty/getpagesize.c
 
 make
 make_install $ME

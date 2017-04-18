@@ -13,18 +13,17 @@ export LDFLAGS="$LDFLAGS $CXXLIBPLUS -lsupc++"
 
 cd ..
 rm -rf $ME
-fetch_source $ME.tar.gz http://ftp.gnu.org/gnu/ncurses/ncurses-5.9.tar.gz
+fetch_source $SRCTARBALL/$ME.tar.gz http://ftp.gnu.org/gnu/ncurses/ncurses-5.9.tar.gz
 tar zxf $SRCTARBALL/$ME.tar.gz
 cd $ME
 mkdir -p dist
 
 # hardcord locale info
-sed -i "s/#define isDecimalPoint(c) .*/#define isDecimalPoint(c) ((c) == '.')/" form/fty_num.c
-sed -i "s/localeconv()/NULL/" form/fty_num.c
+sed -i '' "s/#define isDecimalPoint(c) .*/#define isDecimalPoint(c) ((c) == '.')/" form/fty_num.c
+sed -i '' "s/localeconv()/NULL/" form/fty_num.c
 
 ./configure $CONFIGFLAGS --prefix=$MEDIR/../$ME/dist/ \
     --disable-home-terminfo --without-ada
 
 make
 make_install $ME
-
