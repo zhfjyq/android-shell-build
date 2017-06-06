@@ -43,6 +43,6 @@ function fetch_source() {
 # $1: package file name, e.g. vim-7.4.0001.tar.gz
 # $2: source url
   echo $(pwd)
-  test -f "$1" || curl -k -L -o "$1" "$2"
+  test -f "$1" || curl -L -o "$1" "$2"
   test -f "$1" || exit 1
 }

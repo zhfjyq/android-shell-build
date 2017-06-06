@@ -15,7 +15,7 @@ tar zxf $SRCTARBALL/$ME.tar.gz
 cd $ME
 mkdir -p dist
 
-MACHINE=armv7 SYSTEM=android ./config -fPIC --prefix=$MEDIR/../$ME/dist/
+MACHINE=armv7 SYSTEM=android ./config -fPIC $PIEFLAG --prefix=$MEDIR/../$ME/dist/
 
 sed -i '' "s|-Wall|-Wall --sysroot=$ANDROID|" Makefile
 

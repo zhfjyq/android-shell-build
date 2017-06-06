@@ -9,7 +9,7 @@ cd $MEDIR
 source env.sh
 source common.sh
 LDFLAGS="$LDFLAGS -L$MEDIR/../$DISTBIN/openssl-1.0.1p/lib"
-CFLAGS="$CFLAGS -I$MEDIR/../$DISTBIN/openssl-1.0.1p/include -I$MEDIR/../$DISTBIN/openssl-1.0.1p/include/openssl -L$MEDIR/../$DISTBIN/openssl-1.0.1p/lib"
+CFLAGS="$CFLAGS -I$MEDIR/../$DISTBIN/openssl-1.0.1p/include -I$MEDIR/../$DISTBIN/openssl-1.0.1p/include/openssl -L$MEDIR/../$DISTBIN/openssl-1.0.1p/lib "
 
 cd ..
 # rm -rf $ME

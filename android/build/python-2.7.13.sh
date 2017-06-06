@@ -55,9 +55,9 @@ sed -i '' "s|p->pw_gecos|\"\"|" Modules/pwdmodule.c
 cp $MEDIR/python/Setup.dist Modules/
 cp $MEDIR/python/socketmodule.c Modules/
 
-CFLAGS="$CFLAGS --sysroot=$ANDROID $LIB_INCLUDE" \
-CXXFLAGS="$CXXFLAGS --sysroot=$ANDROID $LIB_INCLUDE" \
-LDFLAGS="$LDFLAGS --sysroot=$ANDROID $LIB_LIB" \
+CFLAGS="$CFLAGS --sysroot=$ANDROID $LIB_INCLUDE $PIEFLAG" \
+CXXFLAGS="$CXXFLAGS --sysroot=$ANDROID $LIB_INCLUDE $PIEFLAG" \
+LDFLAGS="$LDFLAGS --sysroot=$ANDROID $LIB_LIB $PIEFLAG" \
 LDLAST="$PIEFLAG" \
 ./configure --host=arm-unknown-linux-gnu --build=x86_64-unknown-linux-gnu \
             --enable-ipv6 \
