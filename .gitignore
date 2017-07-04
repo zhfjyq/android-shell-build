@@ -23,5 +23,10 @@
 # System Files
 .DS_Store
 Thumbs.db
+*.o
+*.a
+*.lo
+*.la
+.lib
 
 android/src
