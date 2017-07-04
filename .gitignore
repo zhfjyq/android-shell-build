@@ -27,6 +27,6 @@ Thumbs.db
 *.a
 *.lo
 *.la
-.lib
-
+.libs
+.deps
 android/src
