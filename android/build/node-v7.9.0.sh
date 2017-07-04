@@ -49,7 +49,7 @@ export CPPFLAGS_host=$CXXFLAGS
 export CPPFLAGS=$CXXFLAGS
 export CFLAGS_host=$CFLAGS
 
-./configure --prefix=$MEDIR/../$ME/dist/ --without-snapshot --dest-cpu=arm --dest-os=android --with-intl=none
+./configure --prefix=$MEDIR/../$ME/dist/ --without-snapshot --dest-cpu=arm --dest-os=android --with-intl=none --without-npm --without-inspector
 sed -i '' "s|LIBS := \\\\|LIBS := -lgnustl_static\\\\|" $MEDIR/../$ME/out/node.target.mk
 sed -i '' "s|LIBS := \\\\|LIBS := -lgnustl_static\\\\|" $MEDIR/../$ME/out/deps/v8/src/mkpeephole.target.mk
 # skip generate bytecode-peephole-table.cc

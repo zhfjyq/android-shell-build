@@ -19,7 +19,7 @@
                  'node_byteorder': 'little',
                  'node_enable_d8': 'false',
                  'node_enable_v8_vtunejit': 'false',
-                 'node_install_npm': 'true',
+                 'node_install_npm': 'false',
                  'node_module_version': 51,
                  'node_no_browser_globals': 'false',
                  'node_prefix': '/Users/zhufeng/git/android-shell-build/android/build/../node-v7.9.0/dist/',
