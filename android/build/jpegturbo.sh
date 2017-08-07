@@ -18,5 +18,5 @@ cd ../$ME/libjpeg-turbo;pwd
 #build app jpegturbo
 cd ..
 pwd
-echo
+echo BUILD
 $CC $CPPFLAGS ./jpegturbo.c -L./libjpeg-turbo/.libs -l turbojpeg -o ./jpegturbo

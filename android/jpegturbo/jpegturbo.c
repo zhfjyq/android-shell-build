@@ -70,7 +70,7 @@ int main(int argc,char * argv[]) {
 	// 检查参数：
 	// jpegturbo 缩小倍数(2,4,8) 品质
 	if(argc != 3) {
-		printf("using: jpegturbo scale quality");
+		printf("using: jpegturbo scale quality\n");
 		exit(1);
 	}
 	scale = atoi(argv[1]);
@@ -125,4 +125,6 @@ int main(int argc,char * argv[]) {
 
 	write(STDOUT_FILENO, jpeg_buf, jpeg_size);
 
+
+	return 0;
 }
